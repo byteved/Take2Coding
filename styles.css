@@ -26,10 +26,22 @@ border: 2px solid black;
 outline-color:black;
 outline-style: solid;
 }
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+}
+
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
 }
 footer {
 text-align: center;
