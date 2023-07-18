@@ -30,9 +30,6 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  display: flex;
-    align-items: center;
-    justify-content: center;
 }
 footer {
 text-align: center;
