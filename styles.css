@@ -46,3 +46,7 @@ td, th {
 footer {
 text-align: center;
 }
+video {
+    display: block;
+    margin: 0 auto;
+}
