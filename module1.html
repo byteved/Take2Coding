@@ -77,8 +77,7 @@
            color: #ff4500; /* Orange-red */
        }
        /* Styles remain the same as before */
-      /* Popup container - can be anything you want */
-.popup {
+       .popup {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -142,90 +141,75 @@
            <p>In this lesson, you will learn how to create a basic HTML document and display "Hello, World!" on the web page.</p>
            <p>Follow the instructions below to complete the code:</p>
            <ol>
-               <li>Add the doctype declaration at the top of your document.</li>
+               <li>Add the doctype declaration<code>&lt;!DOCTYPE html&gt;</code> at the top of your document.</li>
                <li>Create an <code>&lt;html&gt;</code> element as the root of the document.</li>
                <li>Add a <code>&lt;head&gt;</code> element inside the <code>&lt;html&gt;</code> element.</li>
-               <li>Inside the <code>&lt;head&gt;</code> element, add a <code>&lt;title&gt;</code> element with the title "My First Web Page".</li>
+               <li>Inside the <code>&lt;head&gt;</code> element, add a <code>&lt;title&gt;</code> element with the title "My First Web Page". Close it using this: <code>&lt;/title&gt;</code></li>
+               <li>Close the head element using <code>&lt;/head&gt;</code>.</li>
                <li>Create a <code>&lt;body&gt;</code> element inside the <code>&lt;html&gt;</code> element.</li>
-               <li>Inside the <code>&lt;body&gt;</code> element, add an <code>&lt;h1&gt;</code> heading with the text "Hello, World!"</li>
-               <li>Add a <code>&lt;p&gt;</code> paragraph with the text "Welcome to my first web page."</li>
+               <li>Inside the <code>&lt;body&gt;</code> element, add an <code>&lt;h1&gt;</code> heading with the text "Hello, World!" Close it using <code>&lt;/h1&gt;</code></li>
+               <li>Add a <code>&lt;p&gt;</code> paragraph with the text "Welcome to my first web page." Close it with <code>&lt;/p&gt;</code>.</li>
+               <li>Close the <code>&lt;body&gt;</code> element with <code>&lt;/body&gt;</code>. </li>
+               <li>Close the <code>&lt;html&gt;</code> element with <code>&lt;/html&gt;</code>. </li>
+               
            </ol>
        </div>
        <div style="width: 50%; padding: 20px;">
            <div class="code-container">
                <h2>Code Editor</h2>
                <textarea rows="12" cols="50" id="codeEditor">
-<!-- Step 1: Add the doctype declaration -->
-&lt;!DOCTYPE html&gt;
 
-<!-- Step 2: Create the root element -->
-&lt;html&gt;
-
-<!-- Step 3: Add the head element -->
-&lt;head&gt;
-
-<!-- Step 4: Add a title for the document -->
-&lt;title&gt;My First Web Page&lt;/title&gt;
-
-<!-- Step 5: Create the body element -->
-&lt;/head&gt;
-&lt;body&gt;
-
-<!-- Step 6: Add an h1 heading -->
-&lt;h1&gt;Hello, World!&lt;/h1&gt;
-
-<!-- Step 7: Add a paragraph -->
-&lt;p&gt;Welcome to my first web page.&lt;/p&gt;
-
-<!-- Step 8: Finish the Website -->
-&lt;/body&gt;
-&lt;/html&gt; 
 </textarea>
                <button onclick="checkCode()">Check Code</button>
                <div id="result"></div>
-              <div class="popup">
-  <span class="popuptext" id="myPopup"><button onclick="window.location.href = 'module2.html';">next.</button></span>
+               <div class="popup">
+  <span class="popuptext" id="myPopup"><button onclick="window.location.href = 'module2.html';">Next Module</button></span>
 </div>
            </div>
        </div>
    </div>
+
    <script>
        // JavaScript code to check the user's code
        function checkCode() {
-           const code = document.getElementById("codeEditor").value;
-           const trimmedCode = code.trim();
+       const code = document.getElementById("codeEditor").value;
+       const userCodeLines = code.trim().split('\n');
 
-           const steps = [
-               `<!DOCTYPE html>`,
-               `<html>`,
-               `<head>`,
-               `<title>My First Web Page</title>`,
-               `<body>`,
-               `<h1>Hello, World!</h1>`,
-               `<p>Welcome to my first web page.</p>`
-           ];
+       const expectedSteps = [
+           `<!DOCTYPE html>`,
+           `<html>`,
+           `<head>`,
+           `<title>My First Web Page</title>`,
+           `</head>`,
+           `<body>`,
+           `<h1>Hello, World!</h1>`,
+           `<p>Welcome to my first web page.</p>`,
+           `</body>`,
+           `</html>`
+       ];
 
-           let correctSteps = 0;
-           let resultHint = "";
+       let correctSteps = 0;
+       let resultHint = "";
 
-           for (let i = 0; i < steps.length; i++) {
-               if (trimmedCode.includes(steps[i])) {
-                   correctSteps++;
-               } else {
-                   resultHint = `You missed step ${i + 1}: "${steps[i]}". `;
-                   break;
-               }
-           }
-
-           const resultDiv = document.getElementById("result");
-           if (correctSteps === steps.length) {
-               resultDiv.innerHTML = "<p class='success'>Code is correct! You've completed the lesson.</p>";
-              myFunction()
+       for (let i = 0; i < expectedSteps.length; i++) {
+           const stepFound = userCodeLines.some(line => line.includes(expectedSteps[i]));
+           if (stepFound) {
+               correctSteps++;
            } else {
-               resultDiv.innerHTML = `<p class='error'>Code is incorrect. ${resultHint}Please review the instructions and try again.</p>`;
+               resultHint = `You missed step ${i + 1}: "${expectedSteps[i]}". `;
+               break;
            }
        }
 
+       const resultDiv = document.getElementById("result");
+       if (correctSteps === expectedSteps.length) {
+           resultDiv.innerHTML = "<p class='success'>Code is correct! You've completed the lesson.</p>";
+           myFunction()
+       } else {
+           resultDiv.innerHTML = `<p class='error'>Code is incorrect. ${resultHint}Please review the instructions and try again.</p>`;
+       }
+   		}
+      
       function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
