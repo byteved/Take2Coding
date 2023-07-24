@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>take2coding - Learn to Code</title>
+   <style>
+       /* CSS code */
+       body {
+           font-family: Arial, sans-serif;
+           line-height: 1.6;
+           max-width: 800px;
+           margin: 0 auto;
+           padding: 20px;
+           background-color: #f2f2f2;
+           color: #333;
+       }
+
+       h1 {
+           color: #303F9F; /* Updated to navy blue */
+           text-align: center; /* Centering the header */
+           margin-bottom: 30px;
+       }
+
+       h2 {
+           color: #00C851;
+       }
+
+       h3 {
+           color: #ff6d00;
+       }
+
+       p {
+           color: #555;
+       }
+
+       code {
+           background-color: #f5f5f5;
+           padding: 2px 4px;
+           border-radius: 4px;
+       }
+
+       /* More advanced color scheme */
+       header {
+           background-color: #303F9F; /* Updated to navy blue */
+           color: white;
+           padding: 10px;
+           text-align: center;
+           margin-bottom: 30px;
+       }
+
+       main {
+           background-color: white;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+           padding: 20px;
+           border-radius: 8px;
+       }
+
+       section {
+           margin-bottom: 30px;
+       }
+
+       ul {
+           list-style-type: none;
+           padding: 0;
+       }
+
+       li {
+           margin-bottom: 10px;
+       }
+
+       .module-title {
+           font-size: 24px;
+           font-weight: bold;
+           margin-bottom: 10px;
+       }
+
+       .course-title {
+           font-size: 18px;
+           font-weight: bold;
+           color: #007BFF;
+           cursor: pointer;
+       }
+
+       .module {
+           padding-left: 20px;
+           display: none;
+       }
+
+       .module.active {
+           display: block;
+       }
+   </style>
+</head>
+<body>
+   <header>
+       <h1>Welcome to take2coding!</h1>
+   </header>
+   <main>
+       <section>
+           <div class="module-title">Module 1: HTML Basics</div>
+           <ul>
+               <li>
+                   <div class="course-title">Course 1: Introduction to Javascript</div>
+                   <p>Learn the basics of Javascript</p>
+                   <details>
+                       <summary class="dropdown-summary">Modules</summary>
+                       <ul class="module">
+                           <li><a href="module1J.html">Module 1</a></li>
+                           <li><a href="module2J.html">Module 2</a></li>
+                           <li><a href="module3J.html">Module 3</a></li>
+                       </ul>
+                   </details>
+               </li>
+               <!-- Add more courses here with their respective dropdown menus -->
+           </ul>
+       </section>
+      
+       <!-- Add more sections with other modules and courses here -->
+   </main>
+   <script>
+       // JavaScript code for dropdown menus
+       const dropdownSummaries = document.querySelectorAll('.dropdown-summary');
+
+       dropdownSummaries.forEach(summary => {
+           summary.addEventListener('click', () => {
+               summary.parentNode.querySelector('.module').classList.toggle('active');
+           });
+       });
+   </script>
+</body>
+</html>
+
 
