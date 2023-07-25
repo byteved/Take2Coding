@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HTML Introduction - CSS</title>
+   <style>
+       /* CSS styles for the body element */
+       body {
+           font-family: 'Arial', sans-serif;
+           line-height: 1.6;
+           max-width: 800px;
+           margin: 0 auto;
+           padding: 20px;
+           background-color: #f3f3f3;
+           color: #333;
+       }
+
+       /* CSS styles for the h1 element */
+       h1 {
+           color: #006400; /* Dark green */
+           text-align: center; /* Centering the header */
+           margin-bottom: 30px;
+       }
+
+       /* CSS styles for the h2 element */
+       h2 {
+           color: #ff4500; /* Orange-red */
+       }
+
+       /* CSS styles for the p element */
+       p {
+           color: #555;
+       }
+
+       /* CSS styles for the code element */
+       code {
+           background-color: #f5f5f5;
+           padding: 2px 4px;
+           border-radius: 4px;
+       }
+
+       /* CSS styles for the ordered list (ol) element */
+       ol {
+           padding-left: 20px;
+       }
+
+       /* CSS styles for the list items (li) */
+       li {
+           color: #006400; /* Dark green */
+           margin-bottom: 10px;
+       }
+
+       /* CSS styles for the code container */
+       .code-container {
+           background-color: #ffffff;
+           border: 1px solid #ccc;
+           border-radius: 8px;
+           padding: 20px;
+       }
+
+       /* CSS styles for the textarea element */
+       textarea {
+           width: 100%;
+           resize: none;
+           font-family: 'Courier New', monospace;
+       }
+
+       /* CSS styles for the button element */
+       button {
+           background-color: #007bff; /* Blue */
+           color: #fff;
+           border: none;
+           padding: 10px 20px;
+           border-radius: 4px;
+           cursor: pointer;
+       }
+
+       /* CSS styles for the result div */
+       #result {
+           margin-top: 20px;
+       }
+
+       /* CSS styles for success messages */
+       .success {
+           color: #006400; /* Dark green */
+       }
+
+       /* CSS styles for error messages */
+       .error {
+           color: #ff4500; /* Orange-red */
+       }
+
+       /* Popup styles (You can keep them as they were) */
+       .popup {
+           position: relative;
+           display: inline-block;
+           cursor: pointer;
+           -webkit-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none;
+           user-select: none;
+       }
+
+       .popup .popuptext {
+           visibility: hidden;
+           width: 160px;
+           background-color: #555;
+           color: #fff;
+           text-align: center;
+           border-radius: 6px;
+           padding: 8px 0;
+           position: absolute;
+           z-index: 1;
+           bottom: 125%;
+           left: 50%;
+           margin-left: -80px;
+       }
+
+       .popup .popuptext::after {
+           content: "";
+           position: absolute;
+           top: 100%;
+           left: 50%;
+           margin-left: -5px;
+           border-width: 5px;
+           border-style: solid;
+           border-color: #555 transparent transparent transparent;
+       }
+
+       .popup .show {
+           visibility: visible;
+           -webkit-animation: fadeIn 1s;
+           animation: fadeIn 1s;
+       }
+
+       @-webkit-keyframes fadeIn {
+           from { opacity: 0; } 
+           to { opacity: 1; }
+       }
+
+       @keyframes fadeIn {
+           from { opacity: 0; }
+           to { opacity: 1; }
+       }
+   </style>
+</head>
+<body>
+   <div style="display: flex;">
+       <div style="width: 50%; padding: 20px;">
+           <h1>Module 1 - CSS Styling</h1>
+           <p>Welcome to the CSS styling tutorial! In this lesson, you will learn how to add styles to your existing "Hello, World!" web page.</p>
+           <p>Follow the instructions below to complete the code:</p>
+           <ol>
+               <li>Open your existing "Hello, World!" HTML file in a text editor.</li>
+               <li>Inside the <code>&lt;head&gt;</code> element, add a <code>&lt;style&gt;</code> tag to include CSS styles.</li>
+               <li>Understand the basics of CSS properties and values:</li>
+               <ul>
+                   <li>Each CSS rule consists of a <b>selector</b> and one or more <b>property-value pairs</b>.</li>
+                   <li>The <b>selector</b> targets the HTML elements to be styled. In this example, we'll use the following selectors:</li>
+                   <ul>
+                       <li><code>h1</code>: Targets the <code>&lt;h1&gt;</code> element.</li>
+                       <li><code>p</code>: Targets all <code>&lt;p&gt;</code> elements.</li>
+                       <li><code>code</code>: Targets all <code>&lt;code&gt;</code> elements.</li>
+                   </ul>
+                   <li>The <b>property-value pairs</b> define the styles for the selected elements. For example:</li>
+                   <ul>
+                       <li><code>color: #006400;</code> sets the text color to dark green (#006400).</li>
+                       <li><code>text-align: center;</code> centers the text.</li>
+                   </ul>
+               </ul>
+               <li>Write CSS code to style the <code>&lt;h1&gt;</code> element:</li>
+               <ul>
+                   <li>Set the color to dark green (#006400).</li>
+                   <li>Center-align the text.</li>
+               </ul>
+               <li>Write CSS code to style the <code>&lt;p&gt;</code> element:</li>
+               <ul>
+                   <li>Set the text color to #555.</li>
+                   <li>Justify-align the text.</li>
+               </ul>
+               <li>Write CSS code to style the <code>&lt;code&gt;</code> element:</li>
+               <ul>
+                   <li>Set the background color to #f5f5f5.</li>
+                   <li>Add padding of 2 pixels on top and bottom and 4 pixels on the left and right.</li>
+                   <li>Apply a border-radius of 4 pixels to create rounded corners.</li>
+               </ul>
+               <li>Save the changes to your HTML file and open it in a web browser to see the styled "Hello, World!" web page.</li>
+           </ol>
+       </div>
+       <div style="width: 50%; padding: 20px;">
+           <div class="code-container">
+               <h2>Code Editor</h2>
+               <textarea rows="12" cols="50" id="codeEditor">
+/* Write your CSS code here */
+h1 {
+  /* Your styles for h1 go here */
+}
+
+p {
+  /* Your styles for p go here */
+}
+
+code {
+  /* Your styles for code go here */
+}
+               </textarea>
+               <button onclick="checkCode()">Check Code</button>
+               <div id="result"></div>
+               <div class="popup">
+                   <span class="popuptext" id="myPopup">
+                       <button onclick="window.location.href = 'module4.html';">Next Module</button>
+                   </span>
+               </div>
+           </div>
+           <div id="hint"></div> <!-- Added the missing hintDiv -->
+       </div>
+   </div>
+
+   <script>
+       function checkCode() {
+           const code = document.getElementById("codeEditor").value;
+           const styleTag = document.createElement("style"); // Create a new style tag
+           styleTag.innerHTML = code; // Apply the user's CSS code to the style tag
+
+           // Remove any existing style tag
+           const existingStyleTag = document.querySelector("style");
+           if (existingStyleTag) {
+               existingStyleTag.remove();
+           }
+
+           // Append the new style tag to the head element
+           document.head.appendChild(styleTag);
+
+           // Check if all expected styles are applied
+           const h1 = document.querySelector("h1");
+           const p = document.querySelector("p");
+           const codeElement = document.querySelector("code");
+
+           const h1Style = getComputedStyle(h1);
+           const pStyle = getComputedStyle(p);
+           const codeStyle = getComputedStyle(codeElement);
+
+           const correctH1Style = "rgb(0, 102, 0)";
+           const correctPStyle = "rgb(85, 85, 85)";
+           const correctCodeStyle = "rgba(245, 245, 245, 0.6)";
+
+           const resultDiv = document.getElementById("result");
+
+           if (h1Style.color === correctH1Style &&
+               h1Style.textAlign === "center" &&
+               pStyle.color === correctPStyle &&
+               pStyle.textAlign === "justify" &&
+               codeStyle.backgroundColor === correctCodeStyle &&
+               codeStyle.padding === "2px 4px" &&
+               codeStyle.borderRadius === "4px"
+           ) {
+               resultDiv.innerHTML = "<p class='success'>Code is correct! You've completed the lesson.</p>";
+               myFunction();
+           } else {
+               resultDiv.innerHTML = "<p class='error'>Code is incorrect. Please review the instructions and try again.</p>";
+               showHint();
+           }
+       }
+
+       function showHint() {
+           const hintDiv = document.getElementById("hint");
+           hintDiv.innerHTML = "<p class='hint'>Here's a hint: Check your CSS styles for the <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;code&gt;</code> elements. Make sure all the required CSS rules are included.</p>";
+       }
+
+       function myFunction() {
+           var popup = document.getElementById("myPopup");
+           popup.classList.toggle("show");
+       }
+   </script>
+</body>
+</html>
