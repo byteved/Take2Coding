@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>HTML Module 4 - Comments</title>
+   <style>
+      body {
+         font-family: 'Arial', sans-serif;
+         line-height: 1.6;
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 20px;
+         background-color: #f3f3f3;
+         color: #333;
+      }
+
+      h1 {
+         color: #006400; /* Dark green */
+         text-align: center; /* Centering the header */
+         margin-bottom: 30px;
+      }
+
+      p {
+         color: #555;
+      }
+
+      code {
+         background-color: #f5f5f5;
+         padding: 2px 4px;
+         border-radius: 4px;
+      }
+
+      ol {
+         padding-left: 20px;
+      }
+
+      li {
+         color: #006400; /* Dark green */
+         margin-bottom: 10px;
+      }
+
+      .code-container {
+         background-color: #ffffff;
+         border: 1px solid #ccc;
+         border-radius: 8px;
+         padding: 20px;
+      }
+
+      textarea {
+         width: 100%;
+         resize: none;
+         font-family: 'Courier New', monospace;
+      }
+
+      button {
+         background-color: #007bff; /* Blue */
+         color: #fff;
+         border: none;
+         padding: 10px 20px;
+         border-radius: 4px;
+         cursor: pointer;
+      }
+
+      #result {
+         margin-top: 20px;
+      }
+
+      .success {
+         color: #006400; /* Dark green */
+      }
+
+      .error {
+         color: #ff4500; /* Orange-red */
+      }
+
+      /* Styles for the popup */
+      .popup {
+         position: relative;
+         display: inline-block;
+         cursor: pointer;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+      }
+
+      .popup .popuptext {
+         visibility: hidden;
+         width: 160px;
+         background-color: #555;
+         color: #fff;
+         text-align: center;
+         border-radius: 6px;
+         padding: 8px 0;
+         position: absolute;
+         z-index: 1;
+         bottom: 125%;
+         left: 50%;
+         margin-left: -80px;
+      }
+
+      .popup .popuptext::after {
+         content: "";
+         position: absolute;
+         top: 100%;
+         left: 50%;
+         margin-left: -5px;
+         border-width: 5px;
+         border-style: solid;
+         border-color: #555 transparent transparent transparent;
+      }
+
+      .popup .show {
+         visibility: visible;
+         -webkit-animation: fadeIn 1s;
+         animation: fadeIn 1s;
+      }
+
+      @-webkit-keyframes fadeIn {
+         from {opacity: 0;} 
+         to {opacity: 1;}
+      }
+
+      @keyframes fadeIn {
+         from {opacity: 0;}
+         to {opacity:1 ;}
+      }
+   </style>
+</head>
+<body>
+   <div style="display: flex;">
+       <div style="width: 50%; padding: 20px;">
+           <!-- Module instructions -->
+           <h1>Module 4 - HTML Comments</h1>
+           <p>In this lesson, you will learn how to use HTML comments to add notes and explanations to your code.</p>
+           <p>Follow the instructions below to complete the exercise:</p>
+           <ol>
+               <!-- Step-by-step instructions -->
+               <li>Open the code editor below and locate the <code>&lt;head&gt;</code> element.</li>
+               <li>Add a comment inside the <code>&lt;head&gt;</code> element with the text: <code>&lt;!-- Add page title here --&gt;</code>. This comment will remind you to set the title of the page.</li>
+               <li>Now, find the <code>&lt;body&gt;</code> element.</li>
+               <li>Add a comment above the <code>&lt;h1&gt;</code> heading with the text: <code>&lt;!-- Main heading goes here --&gt;</code>. This comment will indicate where the main heading of the page should be placed.</li>
+               <li>Next, add another comment above the <code>&lt;p&gt;</code> paragraph with the text: <code>&lt;!-- Introduction paragraph goes here --&gt;</code>. This comment will guide you to add an introductory paragraph.</li>
+               <li>Now, locate the <code>&lt;img&gt;</code> tag within the <code>&lt;body&gt;</code> element.</li>
+               <li>Add a comment above the <code>&lt;img&gt;</code> tag with the text: <code>&lt;!-- Insert image here --&gt;</code>. This comment will prompt you to include an image in the page.</li>
+           </ol>
+       </div>
+       <div style="width: 50%; padding: 20px;">
+           <div class="code-container">
+               <h2>Code Editor</h2>
+               <!-- Code editor for users to enter their HTML code -->
+               <textarea rows="12" cols="50" id="codeEditor">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;h1&gt;Hello, World!&lt;/h1&gt;
+   &lt;p&gt;Welcome to my first web page.&lt;/p&gt;
+   &lt;img src="image.jpg"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+               <!-- Check button to validate the user's code -->
+               <button onclick="checkCode()">Check Code</button>
+               <!-- Result area to display success or error messages -->
+               <div id="result"></div>
+               <!-- Popup with a button to navigate to the next module -->
+               <div class="popup">
+                   <span class="popuptext" id="myPopup">
+                       <button onclick="window.location.href = 'module2.html';">Next Module</button>
+                   </span>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <script>
+       // JavaScript code to check the user's code
+       function checkCode() {
+           const code = document.getElementById("codeEditor").value;
+           const userCodeLines = code.trim().split('\n');
+
+           const expectedSteps = [
+               '<!DOCTYPE html>',
+               '<html>',
+               '<head>',
+               '<title>My First Web Page</title>',
+               '<!-- Add page title here -->',
+               '</head>',
+               '<body>',
+               '<h1>Hello, World!</h1>',
+               '<!-- Main heading goes here -->',
+               '<p>Welcome to my first web page.</p>',
+               '<!-- Introduction paragraph goes here -->',
+               '<img src="image.jpg">',
+               '<!-- Insert image here -->',
+               '</body>',
+               '</html>'
+           ];
+
+           let correctSteps = 0;
+           let resultHint = "";
+
+           for (let i = 0; i < expectedSteps.length; i++) {
+               const stepFound = userCodeLines.some(line => line.includes(expectedSteps[i]));
+               if (stepFound) {
+                   correctSteps++;
+               } else {
+                   resultHint = `You missed step ${i + 1}: "${expectedSteps[i]}". `;
+                   break;
+               }
+           }
+
+           const resultDiv = document.getElementById("result");
+           if (correctSteps === expectedSteps.length) {
+               resultDiv.innerHTML = "<p class='success'>Code is correct! You've completed the lesson.</p>";
+               myFunction();
+           } else {
+               resultDiv.innerHTML = `<p class='error'>Code is incorrect. ${resultHint}Please review the instructions and try again.</p>`;
+           }
+       }
+
+       // Function to show/hide the popup
+       function myFunction() {
+           var popup = document.getElementById("myPopup");
+           popup.classList.toggle("show");
+       }
+   </script>
+</body>
+</html>
