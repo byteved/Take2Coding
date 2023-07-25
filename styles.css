@@ -35,7 +35,7 @@ font-family: cursive;
   animation: rainbowLoop 6s linear infinite;
   z-index: -1;
 }
-
+}
 button{
 border: 0px solid black;
 height: 20px;
