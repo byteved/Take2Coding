@@ -191,15 +191,15 @@
                <h2>Code Editor</h2>
                <textarea rows="12" cols="50" id="codeEditor">
 /* Write your CSS code here */
-h1 {
+h1: {
   /* Your styles for h1 go here */
 }
 
-p {
+p: {
   /* Your styles for p go here */
 }
 
-code {
+code: {
   /* Your styles for code go here */
 }
                </textarea>
@@ -216,21 +216,41 @@ code {
    </div>
 
    <script>
+               // Original JavaScript code
+       function myFunction() {
+           var popup = document.getElementById("myPopup");
+           popup.classList.toggle("show");
+       }
+
+       // Improved JavaScript code to check user's code against expected styles
+       const expectedStyles = {
+           h1: {
+               color: "rgb(0, 102, 0)", // Dark green
+               textAlign: "center",
+           },
+           p: {
+               color: "rgb(85, 85, 85)", // #555
+               textAlign: "justify",
+           },
+           code: {
+               backgroundColor: "rgba(245, 245, 245, 0.6)", // #f5f5f5 with opacity 0.6
+               padding: "2px 4px",
+               borderRadius: "4px",
+           },
+       };
+
        function checkCode() {
            const code = document.getElementById("codeEditor").value;
-           const styleTag = document.createElement("style"); // Create a new style tag
-           styleTag.innerHTML = code; // Apply the user's CSS code to the style tag
+           const styleTag = document.createElement("style");
+           styleTag.innerHTML = code;
 
-           // Remove any existing style tag
            const existingStyleTag = document.querySelector("style");
            if (existingStyleTag) {
                existingStyleTag.remove();
            }
 
-           // Append the new style tag to the head element
            document.head.appendChild(styleTag);
 
-           // Check if all expected styles are applied
            const h1 = document.querySelector("h1");
            const p = document.querySelector("p");
            const codeElement = document.querySelector("code");
@@ -239,21 +259,16 @@ code {
            const pStyle = getComputedStyle(p);
            const codeStyle = getComputedStyle(codeElement);
 
-           const correctH1Style = "rgb(0, 102, 0)";
-           const correctPStyle = "rgb(85, 85, 85)";
-           const correctCodeStyle = "rgba(245, 245, 245, 0.6)";
-
            const resultDiv = document.getElementById("result");
+           const hintDiv = document.getElementById("hint");
 
-           if (h1Style.color === correctH1Style &&
-               h1Style.textAlign === "center" &&
-               pStyle.color === correctPStyle &&
-               pStyle.textAlign === "justify" &&
-               codeStyle.backgroundColor === correctCodeStyle &&
-               codeStyle.padding === "2px 4px" &&
-               codeStyle.borderRadius === "4px"
+           if (
+               isStyleCorrect(h1Style, expectedStyles.h1) &&
+               isStyleCorrect(pStyle, expectedStyles.p) &&
+               isStyleCorrect(codeStyle, expectedStyles.code)
            ) {
                resultDiv.innerHTML = "<p class='success'>Code is correct! You've completed the lesson.</p>";
+               hintDiv.innerHTML = ""; // Clear the hint if the code is correct.
                myFunction();
            } else {
                resultDiv.innerHTML = "<p class='error'>Code is incorrect. Please review the instructions and try again.</p>";
@@ -261,14 +276,18 @@ code {
            }
        }
 
+       function isStyleCorrect(computedStyle, expectedStyle) {
+           for (const property in expectedStyle) {
+               if (computedStyle[property] !== expectedStyle[property]) {
+                   return false;
+               }
+           }
+           return true;
+       }
+
        function showHint() {
            const hintDiv = document.getElementById("hint");
            hintDiv.innerHTML = "<p class='hint'>Here's a hint: Check your CSS styles for the <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;code&gt;</code> elements. Make sure all the required CSS rules are included.</p>";
-       }
-
-       function myFunction() {
-           var popup = document.getElementById("myPopup");
-           popup.classList.toggle("show");
        }
    </script>
 </body>
