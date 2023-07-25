@@ -24,7 +24,18 @@ p {
  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
-  <script src="jquery.js"></script>
+  <script>
+    var frame = $('#frame')
+var ht = $('#ht').val();
+var cs = $('#cs').val();
+var js = $('#js').val();
+var str = frame[0].innerHTML;
+str = str.replace('~ht', ht);
+str = str.replace('~cs', cs);
+str = str.replace('~js', '<script>'+js+'<\/script>');
+
+frame.attr('srcdoc', str);
+  </script>
 
  <iframe id="frame">
  
