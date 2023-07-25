@@ -2,14 +2,40 @@ h1, p {
 text-align: center;
 font-family: cursive;
 }
-p1 {
+.rainbow-border {
   height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-outline-color:red;
-outline-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+  position: relative;
+  overflow: hidden;
 }
+
+@keyframes rainbowLoop {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.rainbow-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  animation: rainbowLoop 6s linear infinite;
+  z-index: -1;
+}
+
 button{
 border: 0px solid black;
 height: 20px;
