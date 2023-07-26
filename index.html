@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
 </head>
-<buttons><button onclick="window.location.href = 'html.html';">Html</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'javascript.html';">Javascript</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'donate.html';">Donate</button></buttons>
+<buttons><button onclick="window.location.href = 'html.html';">Html</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'javascript.html';">Javascript</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'donate.html';">Donate</button>&emsp;&emsp;&emsp;&emsp;<button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button></buttons>
 <main>
 <body>
 <header>
@@ -43,4 +43,18 @@
 what the dog doin inc. all rights reserved
 </footer>
 
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const buttons = document.querySelectorAll('button');
+  
+  if (body.classList.contains('dark-theme')) {
+    body.classList.remove('dark-theme');
+    buttons.forEach(button => button.classList.remove('dark-theme'));
+  } else {
+    body.classList.add('dark-theme');
+    buttons.forEach(button => button.classList.add('dark-theme'));
+  }
+}
 
+</script>
