@@ -43,6 +43,7 @@ height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 buttons {
   height: 30px;
