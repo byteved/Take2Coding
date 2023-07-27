@@ -1,60 +1,78 @@
-<!DOCTYPE HTMl!>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <title>Take2Coding - Home</title>
 </head>
-<buttons><button onclick="window.location.href = 'html.html';">Html</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'javascript.html';">Javascript</button>&emsp;&emsp;&emsp;&emsp;<button onclick="window.location.href = 'donate.html';">Donate</button>&emsp;&emsp;&emsp;&emsp;<button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button></buttons>
-<main>
 <body>
-<header>
-<h1>Take2Coding</h1>
-<p>Take2coding is a Non-Profit Organization dedicated to helping people around the world code. 7 out of 10 of the fastest growing job occupations require coding skills, but less then 0.5% of the world knows coding. Support our cause by donating today!</p>
-</header>
-<div class="rainbow-border">What Experience do you have?</div>
-  <div class="table-container">
-<table>
-  <tr>
-    <th>basic</th>
-    <th>experienced</th>
-    <th>advanced</th>
-  </tr>
-  <tr>
-    <td>
-    <li>New to html</li>
-    <li>New to javascript</li>
-    </td>
-    <td>
-    <li>knows basic html and css</li>
-    <li>knows basic javascript and loops</li>
-    </td>
-    <td>
-    <li>knows all html and css</li>
-    <li>knows most of javascript and other frameworks</li> 
-    </td>
-  </tr>
-</table>
-  </div>
-</body>
- <video width="1280" height="620" controls>
-  <source src="IMG_0450.mp4" type="video/mp4">
- </video>
-</main>
-<footer>
-what the dog doin inc. all rights reserved
-</footer>
-
-<script>
-function toggleTheme() {
-  const body = document.body;
-  const buttons = document.querySelectorAll('button');
+  <header>
+    <h1>Take2Coding</h1>
+    <p>Take2Coding is a non-profit organization dedicated to helping people around the world learn to code. With 7 out of 10 of the fastest-growing job occupations requiring coding skills, we aim to bridge the gap and make coding accessible to everyone. Support our cause by donating today!</p>
+  </header>
   
-  if (body.classList.contains('dark-theme')) {
-    body.classList.remove('dark-theme');
-    buttons.forEach(button => button.classList.remove('dark-theme'));
-  } else {
-    body.classList.add('dark-theme');
-    buttons.forEach(button => button.classList.add('dark-theme'));
-  }
-}
+  <nav class="buttons">
+    <button onclick="window.location.href = 'html.html';">HTML</button>
+    <button onclick="window.location.href = 'javascript.html';">JavaScript</button>
+    <button onclick="window.location.href = 'donate.html';">Donate</button>
+    <button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
+  
+  <main>
+    <div class="rainbow-border">What Experience Do You Have?</div>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Basic</th>
+          <th>Experienced</th>
+          <th>Advanced</th>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              <li>New to HTML</li>
+              <li>New to JavaScript</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Knows basic HTML and CSS</li>
+              <li>Knows basic JavaScript and loops</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Knows all HTML and CSS</li>
+              <li>Knows most of JavaScript and other frameworks</li> 
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <video width="1280" height="620" controls>
+      <source src="IMG_0450.mp4" type="video/mp4">
+    </video>
+  </main>
+  
+  <footer>
+    &copy; 2023 Take2Coding Inc. All Rights Reserved.
+  </footer>
+  
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const buttons = document.querySelectorAll('button');
+      
+      if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        buttons.forEach(button => button.classList.remove('dark-theme'));
+      } else {
+        body.classList.add('dark-theme');
+        buttons.forEach(button => button.classList.add('dark-theme'));
+      }
+    }
+  </script>
+</body>
+</html>
 
-</script>
