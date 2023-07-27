@@ -5,6 +5,7 @@ body {
   color: #000; /* Default text color (Black) */
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-theme {
