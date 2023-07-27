@@ -1,38 +1,40 @@
 /* General styles */
 body {
-  background-color: #fff; /* Default background color (White theme) */
-  color: #000; /* Default text color (White theme) */
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Default background color (White theme) */
+  color: #000; /* Default text color (Black) */
+  margin: 0;
+  padding: 0;
 }
 
 body.dark-theme {
-  background-color: #000; /* Dark theme background color */
+  background-color: #222; /* Dark theme background color */
   color: #fff; /* Dark theme text color */
 }
 
 h1, p {
   text-align: center;
-  font-family: cursive;
 }
 
 /* Header styles */
 header {
   background-color: #f0f0f0; /* Default header background color (White theme) */
+  padding: 20px 0;
 }
 
 body.dark-theme header {
-  background-color: #000; /* Dark theme header background color */
+  background-color: #222; /* Dark theme header background color */
 }
 
 /* Rainbow border styles */
 .rainbow-border {
   text-align: center;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 30px;
+  line-height: 30px;
   border: 2px solid red;
   position: relative;
   overflow: hidden;
+  font-weight: bold;
 }
 
 @keyframes rainbowLoop {
@@ -59,39 +61,32 @@ body.dark-theme header {
   z-index: -1;
 }
 
-/* Button styles */
-button {
-  border: 2px solid #000; /* Default button border color (White theme) */
-  height: 20px;
+/* Navigation button styles */
+nav {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 5px;
+  align-items: center;
+  background-color: #f0f0f0; /* Default buttons background color (White theme) */
+  padding: 10px 0;
+}
+
+nav button {
+  border: 2px solid #000; /* Default button border color (White theme) */
+  margin: 0 5px;
+  padding: 10px 20px;
   background-color: #f0f0f0; /* Default button background color (White theme) */
-  color: #000; /* Default button text color (White theme) */
+  color: #000; /* Default button text color (Black) */
+  cursor: pointer;
+}
+
+body.dark-theme nav {
+  background-color: #222; /* Dark theme buttons background color */
 }
 
 button.dark-theme {
   border: 2px solid #fff; /* Dark theme button border color */
   background-color: #222; /* Dark theme button background color */
   color: #fff; /* Dark theme button text color */
-}
-
-buttons {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #000; /* Default buttons border color (White theme) */
-  outline-color: #000; /* Default buttons outline color (White theme) */
-  outline-style: solid;
-  background-color: #f0f0f0; /* Default buttons background color (White theme) */
-}
-
-buttons.dark-theme {
-  border: 2px solid #fff; /* Dark theme buttons border color */
-  outline-color: #fff; /* Dark theme buttons outline color */
-  background-color: #222; /* Dark theme buttons background color */
 }
 
 /* Table styles */
@@ -104,30 +99,36 @@ buttons.dark-theme {
 table {
   width: 100%;
   max-width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
 }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  color: #000; /* Default table text color (White theme) */
 }
 
-body.dark-theme td,
-body.dark-theme th {
-  color: #ddd; /* Dark theme table text color */
+body.dark-theme td, body.dark-theme th {
+  border-color: #666;
 }
 
 /* Footer styles */
 footer {
   text-align: center;
   background-color: #f0f0f0; /* Default footer background color (White theme) */
+  padding: 10px 0;
 }
 
-footer.dark-theme {
+body.dark-theme footer {
   background-color: #222; /* Dark theme footer background color */
+  color: #fff; /* Dark theme footer text color */
 }
+
+/* Video styles */
 video {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
 }
