@@ -2,16 +2,23 @@
 <html>
 <head>
    <title>HTML Module Two</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <style>
-   body {
-           font-family: 'Arial', sans-serif;
-           line-height: 1.6;
-           max-width: 800px;
-           margin: 0 auto;
-           padding: 20px;
-           background-color: #f3f3f3;
-           color: #333;
-       }
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f3f3f3;
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+       body.dark-mode {
+        background-color: #333;
+        color: #f7f7f7;
+    }
 
        h1 {
            color: #006400; /* Dark green */
@@ -132,19 +139,6 @@
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-       /* Styles for the body and headings (keep the same) */
-
-       /* Styles for paragraphs (keep the same) */
-
-       /* Styles for code blocks (keep the same) */
-
-       /* Styling the steps (keep the same) */
-
-       /* Styles for code editor and result (keep the same) */
-
-       /* Popup styles (keep the same) */
-
-       /* New styles for the steps */
        ol {
            padding-left: 20px;
        }
@@ -153,9 +147,37 @@
            color: #006400; /* Dark green */
            margin-bottom: 10px;
        }
+       
+         .mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333; /* Default color */
+    }
+
+    .moon-mode {
+        display: none;
+    }
+
+    /* Styling for dark mode */
+    body.dark-mode .mode-toggle {
+        color: #f7f7f7; /* Color when dark mode is active */
+    }
+
+    /* Styling for dark mode (moon icon) */
+    body.dark-mode .moon-mode {
+        display: inline;
+    }
    </style>
 </head>
 <body>
+  <div class="mode-toggle" onclick="toggleMode()">
+        <i class="fas fa-sun"></i> <!-- Sun icon -->
+        <i class="fas fa-moon moon-mode"></i> <!-- Moon icon -->
+    </div>
+    
    <div style="display: flex;">
        <div style="width: 50%; padding: 20px;">
            <h1>Module Two - Html Attributes</h1>
@@ -190,9 +212,22 @@
            </div>
        </div>
    </div>
-   </div>
 
    <script>
+    // Dark mode toggle function
+       function toggleMode() {
+           const body = document.querySelector('body');
+           const moonIcon = document.querySelector('.moon-mode');
+
+           if (body.classList.contains('dark-mode')) {
+               body.classList.remove('dark-mode');
+               moonIcon.style.display = 'none';
+           } else {
+               body.classList.add('dark-mode');
+               moonIcon.style.display = 'inline';
+           }
+       }
+
        // JavaScript code to check the user's code
        function checkCode() {
            const code = document.getElementById("codeEditor").value;
