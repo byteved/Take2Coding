@@ -67,7 +67,7 @@ nav {
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0; /* Default buttons background color (White theme) */
-  padding: 10px 0;
+  padding: 6px 0;
 }
 
 nav button {
