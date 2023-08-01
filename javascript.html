@@ -3,6 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <title>take2coding - Learn to Code</title>
    <style>
        /* CSS code */
@@ -14,9 +15,11 @@
            padding: 20px;
            background-color: #f2f2f2;
            color: #333;
+           transition: background-color 0.3s, color 0.3s;
        }
 
-       h1 {
+       /* Rest of the CSS remains unchanged */
+ h1 {
            color: #303F9F; /* Updated to navy blue */
            text-align: center; /* Centering the header */
            margin-bottom: 30px;
@@ -42,7 +45,7 @@
 
        /* More advanced color scheme */
        header {
-           background-color: #303F9F; /* Updated to navy blue */
+           background-color: black; /* Updated to navy blue */
            color: white;
            padding: 10px;
            text-align: center;
@@ -90,15 +93,111 @@
        .module.active {
            display: block;
        }
+      #shadowBox {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0);
+    /* Black w/opacity/see-through */
+    border: 3px solid;
+}
+
+.rainbow {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 32px;
+    font-family: monospace;
+    letter-spacing: 5px;
+}
+.rainbow_text_animated {
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
+
+       /* Dark mode styles */
+       body.dark-mode {
+           background-color: #333;
+           color: #f7f7f7;
+       }
+
+       .dark-mode header {
+           background-color: navy;
+           color: white;
+       }
+
+       .dark-mode main {
+           background-color: #1a1a1a;
+           color: #f7f7f7;
+       }
+
+       .dark-mode a {
+           color: #4dd0e1; /* Light blue link color in dark mode */
+       }
+
+       .dark-mode .dropdown-summary {
+           color: #4dd0e1; /* Light blue dropdown summary color in dark mode */
+       }
+
+       .dark-mode .module-title {
+           color: #ff5722; /* Deep orange module title color in dark mode */
+       }
+
+       .dark-mode .course-title {
+           color: #2196F3; /* Blue course title color in dark mode */
+       }
+
+       /* Moon and Sun Toggle */
+       .mode-toggle {
+           position: fixed;
+           top: 20px;
+           right: 20px;
+           font-size: 24px;
+           cursor: pointer;
+           color: #333; /* Default color */
+       }
+
+       .moon-mode {
+           display: none;
+       }
+
+       /* Styling for dark mode */
+       body.dark-mode .mode-toggle {
+           color: #f7f7f7; /* Color when dark mode is active */
+       }
+
+       /* Styling for dark mode (moon icon) */
+       body.dark-mode .moon-mode {
+           display: inline;
+       }
    </style>
 </head>
 <body>
+   <!-- Dark mode toggle button with moon and sun icons -->
+   <div class="mode-toggle" onclick="toggleMode()">
+       <i class="fas fa-sun"></i> <!-- Sun icon -->
+       <i class="fas fa-moon moon-mode"></i> <!-- Moon icon -->
+   </div>
    <header>
-       <h1>Welcome to take2coding!</h1>
+      <div id="shadowBox">
+         <h3 class="rainbow rainbow_text_animated">Welcome to Javascript!</h3>
+      </div>
    </header>
    <main>
        <section>
-           <div class="module-title">Module 1: Javascript Basics</div>
+           <div class="module-title">HTML Basics</div>
            <ul>
                <li>
                    <div class="course-title">Course 1: Introduction to Javascript</div>
@@ -106,18 +205,16 @@
                    <details>
                        <summary class="dropdown-summary">Modules</summary>
                        <ul class="module">
-                           <li><a href="module1J.html">Module 1</a></li>
-                           <li><a href="module2J.html">Module 2</a></li>
-                           <li><a href="module3J.html">Module 3</a></li>
+                           <li><a href="module1j.html">Module 1</a></li>
+                           <li><a href="module2j.html">Module 2</a></li>
+                           <li><a href="module3j.html">Module 3</a></li>
+                           <li><a href="module4j.html">Module 4</a></li>
                        </ul>
                    </details>
-               </li>
-               <!-- Add more courses here with their respective dropdown menus -->
-           </ul>
        </section>
-      
        <!-- Add more sections with other modules and courses here -->
    </main>
+
    <script>
        // JavaScript code for dropdown menus
        const dropdownSummaries = document.querySelectorAll('.dropdown-summary');
@@ -127,8 +224,20 @@
                summary.parentNode.querySelector('.module').classList.toggle('active');
            });
        });
+
+       // Dark mode toggle function
+       function toggleMode() {
+           const body = document.querySelector('body');
+           const moonIcon = document.querySelector('.moon-mode');
+
+           if (body.classList.contains('dark-mode')) {
+               body.classList.remove('dark-mode');
+               moonIcon.style.display = 'none';
+           } else {
+               body.classList.add('dark-mode');
+               moonIcon.style.display = 'inline';
+           }
+       }
    </script>
 </body>
 </html>
-
-
